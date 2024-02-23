@@ -8,16 +8,18 @@ html, body {
 body {
     font-family: Arial, sans-serif;
     background-color: #85DCB;
+    margin: 0;
+    padding: 0;
 }
 
 /* Style the navigation bar */
 .navbar {
-    background-color: #333;
+    background-color: #E8A87C; /* Update top bar color */
     color: white;
     padding: 10px 0;
-    display: flex; /* Make the menu items align horizontally */
-    justify-content: space-between; /* Distribute menu items evenly */
-    width: 100%; /* Full width */
+    display: flex;
+    justify-content: center; /* Center the menu items horizontally */
+    width: 100%;
 }
 
 /* Style individual menu items */
@@ -41,7 +43,7 @@ body {
 
 .navbar ul li:hover ul.subnav {
     display: block;
-    position: absolute; /* Use absolute positioning to overlay the submenu */
+    position: absolute;
 }
 
 .navbar ul li:hover ul.subnav a {
@@ -57,36 +59,40 @@ body {
 /* Profile section styling */
 .profile-section {
     display: flex;
-    align-items: center; /* Center vertically */
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    flex-direction: column; /* Stack items vertically */
+    text-align: center; /* Center text */
 }
 
 .profile-section img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    margin-right: 20px;
+    margin-bottom: 10px;
 }
 
 .profile-section h1 {
-    margin: 0; /* Remove default margin */
-    font-size: 24px; /* Adjust font size */
+    margin: 0;
+    font-size: 24px;
 }
 
 /* Research section styling */
 .research-section h2 {
     color: #333;
-    font-size: 20px; /* Adjust font size */
-    margin-bottom: 10px; /* Slightly reduce margin */
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .research-section p {
-    margin-bottom: 20px; /* Increase margin for readability */
+    margin-bottom: 20px;
 }
 
 .logo {
     position: absolute;
-    top: 10px; /* Adjust the top position as needed */
-    left: 10px; /* Adjust the left position as needed */
-    width: 50px; /* Set the desired width */
-    height: auto; /* Maintain aspect ratio */
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: auto;
 }
+
