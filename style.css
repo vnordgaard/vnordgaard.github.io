@@ -9,20 +9,41 @@ body {
     background-color: #333;
     color: white;
     padding: 10px 0;
+    display: flex; /* Make the menu items align horizontally */
+    justify-content: space-between; /* Distribute menu items evenly */
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-}
-
+/* Style individual menu items */
 .nav-item {
     text-decoration: none;
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for menu items */
+.nav-item:hover {
+    background-color: #555;
+}
+
+/* Keep submenu static when hovering over main menu items */
+.navbar ul li .subnav {
+    display: none;
+}
+
+.navbar ul li:hover ul.subnav {
+    display: block;
+    position: absolute; /* Use absolute positioning to overlay the submenu */
+}
+
+.navbar ul li:hover ul.subnav a {
+    display: block;
+    width: 100%;
+}
+
+/* Add transitions to menu items */
+.nav-item {
     transition: background-color 0.3s ease;
 }
 
