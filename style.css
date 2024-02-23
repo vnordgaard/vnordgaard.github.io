@@ -30,3 +30,27 @@ nav a:hover {
     background-color: #ddd;
     color: black;
 }
+
+.main-content {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.profile-section img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-section h1 {
+    margin-bottom: 10px;
+}
+
+.research-section h2 {
+    color: #333;
+}
+
+.research-section p {
+    margin-bottom: 15px;
+}
