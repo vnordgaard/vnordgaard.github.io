@@ -8,8 +8,6 @@ html, body {
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #FCFBF4;
-    margin: 0;
-    padding: 0;
     color: #333; 
     font-size: 18px; /* Increase font size */
     line-height: 1.6; /* Increase line height */
@@ -48,17 +46,19 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    text-align: center; /* Center text */
+    margin-bottom: 20px; /* Add margin for separation */
 }
 
 .profile-section img {
     width: 80px; /* Adjust image size */
     height: 80px;
     object-fit: cover;
-    margin-left: 20px; /* Add margin to separate from sidebar */
+    margin-right: 20px; /* Add margin to separate from text */
 }
 
 .profile-section div {
-    text-align: left;
+    text-align: left; /* Align text left */
 }
 
 .navbar {
@@ -124,6 +124,7 @@ h1 {
     height: 6px;
     background-color: #90664b;
     border-radius: 50%;
+    margin-right: 10px; /* Adjust spacing between dot and text */
 }
 
 .dot {
@@ -148,5 +149,6 @@ h1 {
     line-height: 1.5; /* Adjust line height */
     font-size: 14px; /* Set font size */
 }
+
 
 
