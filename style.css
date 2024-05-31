@@ -1,4 +1,5 @@
 /* Reset default margin and padding for the entire page */
+/* Reset default margin and padding for the entire page */
 html, body {
     margin: 0;
     padding: 0;
@@ -15,6 +16,7 @@ body {
     line-height: 1.6; /* Increase line height */
 }
 
+/* Change color of hyperlinks */
 a {
     color: #e6d7ff;
 }
@@ -44,7 +46,6 @@ a {
     background-color: #e6d7ff;
     border-radius: 50%;
 }
-
 
 .navbar {
     background-color: #FCFBF4; /* Update top bar color */
@@ -82,8 +83,6 @@ a {
 .profile-section {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Adjusted for more space on the right */
-    text-align: left; /* Align text left */
     margin-bottom: 20px;
 }
 
@@ -96,8 +95,7 @@ a {
     width: 200px; /* Increased size */
     height: 200px; /* Increased size */
     object-fit: cover; /* Ensures image is square */
-    margin-left: 40px; /* Further moved to the right */
-    margin-bottom: 20px; /* Add space below image */
+    margin-right: 20px; /* Add margin to the right */
 }
 
 .profile-section h1 {
@@ -129,5 +127,4 @@ h1 {
     margin-top: 20px;
 }
 
-}
 
