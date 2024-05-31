@@ -10,6 +10,7 @@ body {
     background-color: #FCFBF4;
     margin: 0;
     padding: 0;
+    color: #333; /* Make text color less black */
 }
 
 /* Style the navigation bar */
@@ -36,44 +37,33 @@ body {
     background-color: #e6d7ff;
 }
 
-/* Keep submenu static when hovering over main menu items */
-.navbar ul li .subnav {
-    display: none;
-}
-
-.navbar ul li:hover ul.subnav {
-    display: block;
-    position: absolute;
-}
-
-.navbar ul li:hover ul.subnav a {
-    display: block;
+/* Container styling */
+.container {
+    max-width: 800px;
     width: 100%;
-}
-
-/* Add transitions to menu items */
-.nav-item {
-    transition: background-color 0.3s ease;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 /* Profile section styling */
 .profile-section {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center horizontally */
-    text-align: center; /* Center text */
+    justify-content: space-between; /* Adjusted for more space on the right */
+    text-align: left; /* Align text left */
     margin-bottom: 20px;
 }
 
 .profile-section div {
     text-align: left;
+    flex-grow: 1; /* Allow the div to take up more space */
 }
 
 .profile-section img {
     width: 200px; /* Increased size */
     height: 200px; /* Increased size */
     object-fit: cover; /* Ensures image is square */
-    margin-left: 20px;
+    margin-left: 40px; /* Further moved to the right */
 }
 
 .profile-section h1 {
@@ -85,7 +75,7 @@ body {
 .research-section {
     max-width: 800px;
     margin: 0 auto;
-    text-align: center;
+    text-align: left; /* Align text left */
 }
 
 .research-section h2 {
@@ -98,17 +88,12 @@ body {
     margin-bottom: 20px;
 }
 
-.logo {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 50px;
-    height: auto;
-}
-
+/* Page-specific styling */
 h1 {
     text-align: center;
     font-size: 24px;
     margin-top: 20px;
+}
+
 }
 
