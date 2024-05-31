@@ -36,15 +36,6 @@ a {
     height: 30px;
 }
 
-.sidebar .dot {
-    position: absolute;
-    top: 0;
-    right: -10px;
-    width: 8px;
-    height: 8px;
-    background-color: #e6d7ff;
-    border-radius: 50%;
-}
 
 .navbar {
     background-color: #FCFBF4; /* Update top bar color */
