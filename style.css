@@ -18,7 +18,7 @@ body {
 
 /* Change color of hyperlinks */
 a {
-    color: #e6d7ff;
+    color: #90664b;
 }
 
 .sidebar {
@@ -39,11 +39,12 @@ a {
 
 .sidebar .dot {
     position: absolute;
-    top: 0;
-    right: -10px;
+    top: 50%; /* Position at the center vertically */
+    left: -15px; /* Move to the left */
+    transform: translateY(-50%); /* Adjust vertically centered */
     width: 8px;
     height: 8px;
-    background-color: #e6d7ff;
+    background-color: #90664b;
     border-radius: 50%;
 }
 
@@ -68,7 +69,7 @@ a {
 
 /* Hover effect for menu items */
 .nav-item:hover {
-    background-color: #e6d7ff;
+    background-color: #90664b;
 }
 
 /* Container styling */
