@@ -93,8 +93,8 @@ a {
 }
 
 .profile-section img {
-    width: 200px; /* Increased size */
-    height: 200px; /* Increased size */
+    width: 100px; /* Increased size */
+    height: 100px; /* Increased size */
     object-fit: cover; /* Ensures image is square */
     margin-right: 20px; /* Add margin to the right */
 }
