@@ -46,8 +46,6 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    text-align: center; /* Center text */
-    margin-bottom: 20px; /* Add margin for separation */
 }
 
 .profile-section img {
@@ -66,8 +64,7 @@ a {
     color: white;
     padding: 10px 0;
     display: flex;
-    justify-content: space-around;
-    align-items: center
+    justify-content: center;
     width: 100%;
     font-family: 'Roboto Mono', monospace;
 }
@@ -78,69 +75,17 @@ a {
     padding: 10px 15px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    margin: 0 10px; /* Add margin between items */
 }
 
 .nav-item:hover {
     background-color: #90664b;
 }
 
-.research-section {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: left;
-    padding: 0 20px;
-}
-
 h1 {
     text-align: center;
     font-size: 24px;
     margin-top: 20px;
-}
-
-/* Item list */
-.item-list {
-    list-style-type: none; /* Remove default list styles */
-    margin-top: 10px; /* Adjust spacing */
-}
-
-.item-list li {
-    position: relative; /* To position the dot */
-    margin-bottom: 10px; /* Adjust spacing between list items */
-    padding-left: 20px; /* Add padding to accommodate the dot */
-}
-
-.dot {
-    position: absolute;
-    left: 0;
-    top: 5px; /* Adjust vertical position */
-    width: 6px;
-    height: 6px;
-    background-color: #90664b;
-    border-radius: 50%;
-    margin-right: 10px; /* Adjust spacing between dot and text */
-}
-
-.dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background-color: #90664b;
-    border-radius: 50%;
-    margin-right: 10px; /* Adjust spacing between dot and text */
-}
-
-/* Publication list and work in progress list */
-.publication-list,
-.work-in-progress-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.publication-list li,
-.work-in-progress-list li {
-    margin-bottom: 20px; /* Adjust spacing between list items */
-    line-height: 1.5; /* Adjust line height */
-    font-size: 14px; /* Set font size */
 }
 
 
