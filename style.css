@@ -21,6 +21,13 @@ a {
     color: #90664b;
 }
 
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex; /* Use flexbox for layout */
+}
+
 .sidebar {
     display: flex;
     flex-direction: column;
@@ -37,18 +44,43 @@ a {
     height: 30px;
 }
 
+.sidebar .dot {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 8px;
+    height: 8px;
+    background-color: #90664b;
+    border-radius: 50%;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-section img {
+    width: 150px; /* Adjust image size */
+    height: 150px;
+    object-fit: cover;
+    margin-left: 20px; /* Add margin to separate from sidebar */
+}
+
+.profile-section div {
+    text-align: left;
+}
 
 .navbar {
-    background-color: #FCFBF4; /* Update top bar color */
+    background-color: #FCFBF4;
     color: white;
     padding: 10px 0;
     display: flex;
-    justify-content: center; /* Center the menu items horizontally */
+    justify-content: center;
     width: 100%;
-    font-family: 'Roboto Mono', monospace; /* Updated font */
+    font-family: 'Roboto Mono', monospace;
 }
 
-/* Style individual menu items */
 .nav-item {
     text-decoration: none;
     color: black;
@@ -57,61 +89,17 @@ a {
     transition: background-color 0.3s ease;
 }
 
-/* Hover effect for menu items */
 .nav-item:hover {
-    background-color: #90664b;
+    background-color: #e6d7ff;
 }
 
-/* Container styling */
-.container {
-    max-width: 800px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Profile section styling */
-.profile-section {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.profile-section div {
-    text-align: left;
-    flex-grow: 1; /* Allow the div to take up more space */
-}
-
-.profile-section img {
-    width: 100px; /* Increased size */
-    height: 100px; /* Increased size */
-    object-fit: cover; /* Ensures image is square */
-    margin-right: 20px; /* Add margin to the right */
-}
-
-.profile-section h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-/* Research section styling */
 .research-section {
     max-width: 800px;
     margin: 0 auto;
-    text-align: left; /* Align text left */
+    text-align: left;
+    padding: 0 20px;
 }
 
-.research-section h2 {
-    color: #333;
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.research-section p {
-    margin-bottom: 20px;
-}
-
-/* Page-specific styling */
 h1 {
     text-align: center;
     font-size: 24px;
