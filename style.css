@@ -17,7 +17,7 @@ body {
 
 /* Change color of hyperlinks */
 a {
-    color: #e6d7ff;
+    color: #90664b;
 }
 
 .sidebar {
@@ -58,7 +58,7 @@ a {
 
 /* Hover effect for menu items */
 .nav-item:hover {
-    background-color: #e6d7ff;
+    background-color: #90664b;
 }
 
 /* Container styling */
