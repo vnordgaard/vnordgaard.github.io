@@ -61,15 +61,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center; /* Center horizontally */
-    flex-direction: column; /* Stack items vertically */
     text-align: center; /* Center text */
+    margin-bottom: 20px;
+}
+
+.profile-section div {
+    text-align: left;
 }
 
 .profile-section img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 10px;
+    width: 200px; /* Increased size */
+    height: 200px; /* Increased size */
+    object-fit: cover; /* Ensures image is square */
+    margin-left: 20px;
 }
 
 .profile-section h1 {
@@ -78,6 +82,12 @@ body {
 }
 
 /* Research section styling */
+.research-section {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .research-section h2 {
     color: #333;
     font-size: 20px;
