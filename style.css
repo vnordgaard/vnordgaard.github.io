@@ -127,3 +127,25 @@ h1 {
     border-radius: 50%;
 }
 
+.dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #90664b;
+    border-radius: 50%;
+    margin-right: 10px; /* Adjust spacing between dot and text */
+}
+
+/* Publication list and work in progress list */
+.publication-list,
+.work-in-progress-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.publication-list li,
+.work-in-progress-list li {
+    margin-bottom: 10px; /* Adjust spacing between list items */
+    line-height: 1.5; /* Adjust line height */
+}
+
