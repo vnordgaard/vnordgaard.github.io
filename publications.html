@@ -1,104 +1,52 @@
-/* Reset default margin and padding for the entire page */
-html, body {
-    margin: 0;
-    padding: 0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victor N. Hejstvig-Larsen</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
 
-/* Set the background color for the entire page */
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #FCFBF4;
-    color: #333; 
-    font-size: 18px; /* Increase font size */
-    line-height: 1.6; /* Increase line height */
-}
+<div class="container">
+    <div class="sidebar">
+        <a href="https://www.linkedin.com/in/victor-hejstvig-larsen-866274232/" target="_blank">
+            <img src="images/in.jpg" alt="LinkedIn">
+        </a>
+        <a href="https://github.com/VictorHejstvig-Larsen" target="_blank">
+            <img src="images/github.png" alt="GitHub">
+        </a>
+    </div>
 
-/* Change color of hyperlinks */
-a {
-    color: #90664b;
-}
+    <div class="profile-section">
+        <img src="images/pure.jpg" alt="Profile Picture">
+        <div>
+            <h1>Victor N. Hejstvig-Larsen</h1>
+        </div>
+    </div>
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Stack items vertically */
-}
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-item">v. n. hejstvig-larsen</a>
+            <a href="cv.html" class="nav-item">cv</a>
+            <a href="publications.html" class="nav-item">research</a>
+        </div>
+    </nav>
 
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align items to the left */
-}
+    <div class="research-section">
+        <h1>Publications</h1>
+        <ul class="publication-list">
+            <li>
+                Differential treatment close to election
+                <p>
+                    This article investigates whether the electoral cycle – the phenomenon where politicians formulate more generous policy close to elections – is moderated by the deservingness status of the recipient of said generous policy. We argue that strategic politicians will design generous policy only for deserving recipients whose welfare needs are perceived as self-inflicted. To test this, we coded all adopted acts and parliamentary resolutions in the Danish parliament from 1975-2019 that target five societal groups. With linear probability models, we find that politicians do in fact introduce more generous policies for deserving groups close to elections, while the effect of the electoral cycle is non-existent for undeserving groups. Our findings point towards a more disaggregated approach in the study of the electoral cycle.
+                </p>
+            </li>
+            <!-- Add more publications as needed -->
+        </ul>
+    </div>
+</div>
 
-.sidebar a {
-    margin-bottom: 20px; /* Adjust margin between links */
-    position: relative;
-}
-
-.sidebar img {
-    width: 30px;
-    height: 30px;
-}
-
-.profile-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.profile-section img {
-    width: 80px; /* Adjust image size */
-    height: 80px;
-    object-fit: cover;
-    margin-right: 20px; /* Add margin to separate from text */
-}
-
-.profile-section div {
-    text-align: left; /* Align text left */
-}
-
-.navbar {
-    background-color: #FCFBF4;
-    color: white;
-    padding: 10px 0;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    font-family: 'Roboto Mono', monospace;
-}
-
-.nav-item {
-    text-decoration: none;
-    color: black;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    margin: 0 10px; /* Add margin between items */
-}
-
-.nav-item:hover {
-    background-color: #90664b;
-}
-
-h1 {
-    text-align: center;
-    font-size: 24px;
-    margin-top: 20px;
-}
-
-.publication-list {
-    list-style-type: none; /* Remove default list styles */
-    padding: 0;
-    margin-top: 20px; /* Add margin between list and previous content */
-}
-
-.publication-list li {
-    margin-bottom: 20px; /* Adjust spacing between list items */
-    line-height: 1.5; /* Adjust line height */
-}
-
-.publication-list li:first-child {
-    margin-top: 0; /* Remove top margin from first item */
-}
+</body>
+</html>
