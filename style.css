@@ -96,14 +96,6 @@ h1 {
     margin-top: 20px;
 }
 
-.brown-line {
-    height: 2px;
-    background-color: #90664b;
-    width: 100%;
-    margin-top: 10px;
-    border-radius: 1px; /* To make the ends rounded */
-}
-
 /* Item list */
 .item-list {
     list-style-type: none; /* Remove default list styles */
