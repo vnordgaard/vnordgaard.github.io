@@ -52,8 +52,8 @@ a {
 }
 
 .profile-section img {
-    width: 150px; /* Adjust image size */
-    height: 150px;
+    width: 80px; /* Adjust image size */
+    height: 80px;
     object-fit: cover;
     margin-left: 20px; /* Add margin to separate from sidebar */
 }
