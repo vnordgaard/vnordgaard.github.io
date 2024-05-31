@@ -44,15 +44,6 @@ a {
     height: 30px;
 }
 
-.sidebar .dot {
-    position: absolute;
-    top: 0;
-    right: -10px;
-    width: 8px;
-    height: 8px;
-    background-color: #90664b;
-    border-radius: 50%;
-}
 
 .profile-section {
     display: flex;
