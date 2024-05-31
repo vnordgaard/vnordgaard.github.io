@@ -13,7 +13,6 @@ body {
     color: #333; 
 }
 
-/* Style the navigation bar */
 .navbar {
     background-color: #FCFBF4; /* Update top bar color */
     color: white;
@@ -21,6 +20,7 @@ body {
     display: flex;
     justify-content: center; /* Center the menu items horizontally */
     width: 100%;
+    font-family: 'Roboto Mono', monospace; /* Updated font */
 }
 
 /* Style individual menu items */
