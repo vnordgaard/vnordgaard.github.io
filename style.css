@@ -1,3 +1,4 @@
+/* Reset default margin and padding for the entire page */
 html, body {
     margin: 0;
     padding: 0;
@@ -7,6 +8,8 @@ html, body {
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #FCFBF4;
+    margin: 0;
+    padding: 0;
     color: #333; 
     font-size: 18px; /* Increase font size */
     line-height: 1.6; /* Increase line height */
@@ -14,63 +17,113 @@ body {
 
 /* Change color of hyperlinks */
 a {
-    color: #90664b;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.profile-section {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.profile-section img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    margin-right: 20px;
+    color: #e6d7ff;
 }
 
 .sidebar {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    margin-top: 20px;
+    align-items: flex-start; /* Align items to the left */
+}
+
+.sidebar a {
+    margin-bottom: 20px; /* Adjust margin between links */
+    position: relative;
+}
+
+.sidebar img {
+    width: 30px;
+    height: 30px;
+}
+
+.sidebar .dot {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 8px;
+    height: 8px;
+    background-color: #e6d7ff;
+    border-radius: 50%;
 }
 
 .navbar {
-    background-color: #FCFBF4;
+    background-color: #FCFBF4; /* Update top bar color */
     color: white;
     padding: 10px 0;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Center the menu items horizontally */
     width: 100%;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto Mono', monospace; /* Updated font */
 }
 
+/* Style individual menu items */
 .nav-item {
     text-decoration: none;
     color: black;
     padding: 10px 15px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    margin: 0 10px; /* Add margin between items */
 }
 
+/* Hover effect for menu items */
 .nav-item:hover {
-    background-color: #90664b;
+    background-color: #e6d7ff;
 }
 
+/* Container styling */
+.container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Profile section styling */
+.profile-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-section div {
+    text-align: left;
+    flex-grow: 1; /* Allow the div to take up more space */
+}
+
+.profile-section img {
+    width: 200px; /* Increased size */
+    height: 200px; /* Increased size */
+    object-fit: cover; /* Ensures image is square */
+    margin-right: 20px; /* Add margin to the right */
+}
+
+.profile-section h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Research section styling */
 .research-section {
     max-width: 800px;
     margin: 0 auto;
-    text-align: left;
-    padding: 0 20px;
+    text-align: left; /* Align text left */
+}
+
+.research-section h2 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.research-section p {
+    margin-bottom: 20px;
+}
+
+/* Page-specific styling */
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
 }
 
 
