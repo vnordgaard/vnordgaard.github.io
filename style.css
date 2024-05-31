@@ -1,5 +1,4 @@
 /* Reset default margin and padding for the entire page */
-/* Reset default margin and padding for the entire page */
 html, body {
     margin: 0;
     padding: 0;
@@ -26,6 +25,7 @@ a {
     margin: 0 auto;
     padding: 20px;
     display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
 }
 
 .sidebar {
@@ -43,7 +43,6 @@ a {
     width: 30px;
     height: 30px;
 }
-
 
 .profile-section {
     display: flex;
@@ -145,7 +144,9 @@ h1 {
 
 .publication-list li,
 .work-in-progress-list li {
-    margin-bottom: 10px; /* Adjust spacing between list items */
+    margin-bottom: 20px; /* Adjust spacing between list items */
     line-height: 1.5; /* Adjust line height */
+    font-size: 14px; /* Set font size */
 }
+
 
