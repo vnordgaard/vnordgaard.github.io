@@ -37,16 +37,6 @@ a {
     height: 30px;
 }
 
-.sidebar .dot {
-    position: absolute;
-    top: 50%; /* Position at the center vertically */
-    left: -15px; /* Move to the left */
-    transform: translateY(-50%); /* Adjust vertically centered */
-    width: 8px;
-    height: 8px;
-    background-color: #90664b;
-    border-radius: 50%;
-}
 
 .navbar {
     background-color: #FCFBF4; /* Update top bar color */
