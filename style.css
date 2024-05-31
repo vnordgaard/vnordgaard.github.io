@@ -33,7 +33,7 @@ body {
 
 /* Hover effect for menu items */
 .nav-item:hover {
-    background-color: #555;
+    background-color: #e6d7ff;
 }
 
 /* Keep submenu static when hovering over main menu items */
