@@ -11,7 +11,10 @@ body {
     margin: 0;
     padding: 0;
     color: #333; 
+    font-size: 18px; /* Increase font size */
+    line-height: 1.6; /* Increase line height */
 }
+
 
 .sidebar {
     display: flex;
@@ -91,6 +94,7 @@ body {
     height: 200px; /* Increased size */
     object-fit: cover; /* Ensures image is square */
     margin-left: 40px; /* Further moved to the right */
+    margin-bottom: 20px; /* Add space below image */
 }
 
 .profile-section h1 {
