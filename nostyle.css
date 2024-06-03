@@ -82,7 +82,3 @@ a {
     display: block; /* Prevent inline gap */
     margin: 0 auto 10px; /* Center image and add bottom margin */
 }
-
-.research-section h1 {
-    color: #90664b; /* Set the color of the title to #90664b */
-}
