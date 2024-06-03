@@ -8,8 +8,6 @@ html, body {
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #FCFBF4;
-    margin: 0;
-    padding: 0;
     color: #333; 
     font-size: 18px; /* Increase font size */
     line-height: 1.6; /* Increase line height */
@@ -35,7 +33,6 @@ a {
     width: 30px;
     height: 30px;
 }
-
 
 .navbar {
     background-color: #FCFBF4; /* Update top bar color */
@@ -63,58 +60,42 @@ a {
 
 /* Container styling */
 .container {
-    max-width: 800px;
-    width: 100%;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 20px;
+    overflow: hidden; /* To contain floated elements */
+    display: flex; /* Enable flex layout */
 }
 
-/* Profile section styling */
+.left-section {
+    flex: 1; /* Take up remaining space */
+    border-right: 2px solid brown; /* Brown line */
+    padding-right: 20px; /* Add some space */
+}
+
 .profile-section {
-    display: flex;
-    align-items: center;
+    text-align: center;
     margin-bottom: 20px;
-}
-
-.profile-section div {
-    text-align: left;
-    flex-grow: 1; /* Allow the div to take up more space */
 }
 
 .profile-section img {
-    width: 100px; /* Increased size */
-    height: 100px; /* Increased size */
-    object-fit: cover; /* Ensures image is square */
-    margin-right: 20px; /* Add margin to the right */
+    width: 200px; /* Adjust image size */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Prevent inline gap */
+    margin: 0 auto 10px; /* Center image and add bottom margin */
 }
 
-.profile-section h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-/* Research section styling */
-.research-section {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: left; /* Align text left */
-}
-
-.research-section h2 {
-    color: #333;
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.research-section p {
-    margin-bottom: 20px;
-}
-
-/* Page-specific styling */
-h1 {
+.sidebar {
     text-align: center;
-    font-size: 24px;
     margin-top: 20px;
+}
+
+.right-section {
+    flex: 1; /* Take up remaining space */
+    padding-left: 20px; /* Add some space */
+}
+
+.research-section {
+    padding: 20px;
 }
 
 
