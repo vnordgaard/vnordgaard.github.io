@@ -24,6 +24,8 @@ a {
     align-items: flex-start; /* Align items to the left */
     background-color: #FCFBF4; /* Change background color */
     margin-top: 2cm; /* Add margin from the top */
+    margin-left: 0.5cm;
+    margin-right: 1cm;
 }
 
 .sidebar a {
@@ -74,14 +76,21 @@ a {
     border-right: 2px solid #90664b; /* Change border color to match sidebar background */
     padding-right: 20px; /* Add some space */
     margin-top: 20px; /* Add margin from the top */
+    flex-direction: column;
 }
 
-.profile-section {
+.profile-section-row {
+    display: flex;
+    flex-direction: right;
+    justify-content: flex-end;
+}
+
+.profile-picture {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.profile-section img {
+.profile-picture img {
     width: 100px; /* Adjust image size */
     height: 100px; /* Maintain aspect ratio */
     display: block; /* Prevent inline gap */
@@ -89,8 +98,8 @@ a {
 }
 
 .sidebar {
-    text-align: center;
-    margin-top: 20px;
+    text-align: right;
+    margin: 0 0.5cm 0 0;
 }
 
 .right-section {
