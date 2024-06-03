@@ -22,6 +22,8 @@ a {
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Align items to the left */
+    background-color: #90664b; /* Change background color */
+    margin-top: 2cm; /* Add margin from the top */
 }
 
 .sidebar a {
@@ -78,7 +80,7 @@ a {
 }
 
 .profile-section img {
-    width: 200px; /* Adjust image size */
+    width: 100px; /* Adjust image size */
     height: auto; /* Maintain aspect ratio */
     display: block; /* Prevent inline gap */
     margin: 0 auto 10px; /* Center image and add bottom margin */
