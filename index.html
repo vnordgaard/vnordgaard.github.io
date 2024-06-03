@@ -1,55 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victor N. Hejstvig-Larsen</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
-</head>
-<body>
+/* Reset default margin and padding for the entire page */
+html, body {
+    margin: 0;
+    padding: 0;
+}
 
-<nav class="navbar">
-    <div class="container">
-        <a href="index.html" class="nav-item">v. n. hejstvig-larsen</a>
-        <a href="cv.html" class="nav-item">cv</a>
-        <a href="publications.html" class="nav-item">research</a>
-    </div>
-</nav>
+/* Set the background color for the entire page */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #FCFBF4;
+    color: #333; 
+    font-size: 18px; /* Increase font size */
+    line-height: 1.6; /* Increase line height */
+}
 
-<div class="container">
-    <div class="left-section">
-        <div class="profile-section">
-            <img src="images/pure.jpg" alt="Profile Picture">
-        </div>
+/* Change color of hyperlinks */
+a {
+    color: #90664b;
+}
 
-        <div class="sidebar">
-            <a href="https://www.linkedin.com/in/victor-hejstvig-larsen-866274232/" target="_blank">
-                <img src="images/in.jpg" alt="LinkedIn">
-                <span class="dot"></span>
-            </a>
-            <a href="https://github.com/VictorHejstvig-Larsen" target="_blank">
-                <img src="images/github.png" alt="GitHub">
-                <span class="dot"></span>
-            </a>
-        </div>
-    </div>
+/* Container styling */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden; /* To contain floated elements */
+    display: flex; /* Enable flex layout */
+}
 
-    <div class="right-section">
-        <div class="research-section">
-            <p>
-                I am currently in the first year of my Ph.D. in Political Science at Aarhus University under the supervision of Martin Bisgaard and Roman Senninger.
-                My work focuses on local politicians' beliefs about public opinion. 
-                To get in touch, you can 
-                contact me at <a href="mailto:vnh@ps.au.dk">vnh@ps.au.dk</a>
-            </p>
-            <p>
-            </p>
-        </div>
-    </div>
-</div>
+.left-section {
+    flex: 1; /* Take up remaining space */
+    display: flex; /* Enable flex layout */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Center items horizontally */
+    border-right: 2px solid #90664b; /* Change border color to match sidebar background */
+    padding-right: 20px; /* Add some space */
+    margin-top: 20px; /* Add margin from the top */
+}
 
-</body>
-</html>
+.profile-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-section img {
+    width: 100px; /* Adjust image size */
+    height: 100px; /* Maintain aspect ratio */
+    display: block; /* Prevent inline gap */
+    margin: 0 auto 10px; /* Center image and add bottom margin */
+}
+
+.sidebar {
+    text-align: center;
+    margin-top: 20px;
+    display: flex; /* Enable flex layout */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: flex-start; /* Align items to the start */
+}
+
+.sidebar a {
+    margin-bottom: 20px; /* Adjust margin between links */
+}
+
+.sidebar img {
+    width: 30px;
+    height: 30px;
+}
+
+.right-section {
+    flex: 1; /* Take up remaining space */
+    padding-left: 20px; /* Add some space */
+}
+
+.research-section {
+    padding: 20px;
+}
+
+.section-title {
+    padding: 10px; /* Add padding to section titles */
+    margin: 20px 0; /* Add margin above and below section titles */
+}
+
 
 
