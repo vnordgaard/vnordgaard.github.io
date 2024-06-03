@@ -18,48 +18,6 @@ a {
     color: #90664b;
 }
 
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align items to the left */
-    background-color: #FCFBF4; /* Change background color */
-    margin-top: 2cm; /* Add margin from the top */
-}
-
-.sidebar a {
-    margin-bottom: 20px; /* Adjust margin between links */
-    position: relative;
-}
-
-.sidebar img {
-    width: 30px;
-    height: 30px;
-}
-
-.navbar {
-    background-color: #FCFBF4; /* Update top bar color */
-    color: white;
-    padding: 10px 0;
-    display: flex;
-    justify-content: center; /* Center the menu items horizontally */
-    width: 100%;
-    font-family: 'Roboto Mono', monospace; /* Updated font */
-}
-
-/* Style individual menu items */
-.nav-item {
-    text-decoration: none;
-    color: black;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-/* Hover effect for menu items */
-.nav-item:hover {
-    background-color: #90664b;
-}
-
 /* Container styling */
 .container {
     max-width: 900px;
@@ -73,6 +31,8 @@ a {
     border-right: 2px solid #90664b; /* Change border color to match sidebar background */
     padding-right: 20px; /* Add some space */
     margin-top: 20px; /* Add margin from the top */
+    display: flex; /* Enable flex layout */
+    align-items: flex-start; /* Align items vertically at the start */
 }
 
 .profile-section {
@@ -90,6 +50,19 @@ a {
 .sidebar {
     text-align: center;
     margin-top: 20px;
+    display: flex; /* Enable flex layout */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: flex-end; /* Align items to the end */
+}
+
+.sidebar a {
+    margin-bottom: 20px; /* Adjust margin between links */
+    position: relative;
+}
+
+.sidebar img {
+    width: 30px;
+    height: 30px;
 }
 
 .right-section {
@@ -105,6 +78,7 @@ a {
     padding: 10px; /* Add padding to section titles */
     margin: 20px 0; /* Add margin above and below section titles */
 }
+
 
 
 
