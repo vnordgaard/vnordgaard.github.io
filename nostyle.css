@@ -1,0 +1,84 @@
+/* Reset default margin and padding for the entire page */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set the background color for the entire page */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #FCFBF4;
+    color: #333; 
+    font-size: 18px; /* Increase font size */
+    line-height: 1.6; /* Increase line height */
+}
+
+/* Change color of hyperlinks */
+a {
+    color: #90664b;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #FCFBF4; /* Update top bar color */
+    color: white;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center; /* Center the menu items horizontally */
+    width: 100%;
+    font-family: 'Roboto Mono', monospace; /* Updated font */
+}
+
+/* Style individual menu items */
+.nav-item {
+    text-decoration: none;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for menu items */
+.nav-item:hover {
+    background-color: #90664b;
+}
+
+/* Container styling */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden; /* To contain floated elements */
+}
+
+/* Sidebar styling */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    background-color: #90664b; /* Background color for the sidebar */
+    margin-top: 2cm; /* Add margin from the top */
+}
+
+.sidebar a {
+    margin-bottom: 20px; /* Adjust margin between links */
+    position: relative;
+}
+
+.sidebar img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Profile section styling */
+.profile-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-section img {
+    width: 200px; /* Adjust image size */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Prevent inline gap */
+    margin: 0 auto 10px; /* Center image and add bottom margin */
+}
