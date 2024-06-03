@@ -28,11 +28,12 @@ a {
 
 .left-section {
     flex: 1; /* Take up remaining space */
+    display: flex; /* Enable flex layout */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Center items horizontally */
     border-right: 2px solid #90664b; /* Change border color to match sidebar background */
     padding-right: 20px; /* Add some space */
     margin-top: 20px; /* Add margin from the top */
-    display: flex; /* Enable flex layout */
-    align-items: flex-start; /* Align items vertically at the start */
 }
 
 .profile-section {
@@ -52,12 +53,11 @@ a {
     margin-top: 20px;
     display: flex; /* Enable flex layout */
     flex-direction: column; /* Arrange items vertically */
-    align-items: flex-end; /* Align items to the end */
+    align-items: flex-start; /* Align items to the start */
 }
 
 .sidebar a {
     margin-bottom: 20px; /* Adjust margin between links */
-    position: relative;
 }
 
 .sidebar img {
