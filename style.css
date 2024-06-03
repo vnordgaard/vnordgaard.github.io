@@ -70,8 +70,9 @@ a {
 
 .left-section {
     flex: 1; /* Take up remaining space */
-    border-right: 2px solid brown; /* Brown line */
+    border-right: 2px solid #90664b; /* Change border color to match sidebar background */
     padding-right: 20px; /* Add some space */
+    margin-top: 20px; /* Add margin from the top */
 }
 
 .profile-section {
