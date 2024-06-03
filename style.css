@@ -81,7 +81,7 @@ a {
 
 .profile-section img {
     width: 100px; /* Adjust image size */
-    height: auto; /* Maintain aspect ratio */
+    height: 100px; /* Maintain aspect ratio */
     display: block; /* Prevent inline gap */
     margin: 0 auto 10px; /* Center image and add bottom margin */
 }
