@@ -102,8 +102,7 @@ a {
 }
 
 .section-title {
-    background-color: #90664b; /* Brown color for section titles */
-    color: white; /* White text color for section titles */
+    color: #90664b; /* White text color for section titles */
     padding: 10px; /* Add padding to section titles */
     margin: 20px 0; /* Add margin above and below section titles */
 }
