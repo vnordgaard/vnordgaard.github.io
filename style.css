@@ -22,7 +22,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Align items to the left */
-    background-color: #90664b; /* Change background color */
+    background-color: #FCFBF4; /* Change background color */
     margin-top: 2cm; /* Add margin from the top */
 }
 
