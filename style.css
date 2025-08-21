@@ -7,7 +7,7 @@ html, body {
 /* Set the background color for the entire page */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #FCFBF4;
+    background-color: white;
     color: #333; 
     font-size: 18px; /* Increase font size */
     line-height: 1.6; /* Increase line height */
@@ -22,7 +22,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Align items to the left */
-    background-color: #FCFBF4; /* Change background color */
+    background-color: white; /* Change background color */
     margin-top: 2cm; /* Add margin from the top */
     margin-left: 0.5cm;
     margin-right: 1cm;
@@ -39,10 +39,14 @@ a {
 }
 
 .navbar {
-    background-color: #FCFBF4; /* Update top bar color */
+    background-color: white; /* Update top bar color */
+    margin: 0;
     color: white;
     padding: 10px 0;
     display: flex;
+    top: 0;
+    z-index: 1000;
+    position: sticky
     justify-content: center; /* Center the menu items horizontally */
     width: 100%;
     font-family: 'Roboto Mono', monospace; /* Updated font */

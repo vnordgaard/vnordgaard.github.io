@@ -7,7 +7,7 @@ html, body {
 /* Set the background color for the entire page */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #FCFBF4;
+    background-color: white;
     color: #333; 
     font-size: 18px; /* Increase font size */
     line-height: 1.6; /* Increase line height */
@@ -15,15 +15,19 @@ body {
 
 /* Change color of hyperlinks */
 a {
-    color: #90664b;
+    color: #4da6ff;
 }
 
 /* Navbar styling */
 .navbar {
-    background-color: #FCFBF4; /* Update top bar color */
+    background-color: white; /* Update top bar color */
     color: white;
     padding: 10px 0;
     display: flex;
+    top: 0;
+    margin: 0;
+    z-index: 1000;
+    position: sticky
     justify-content: center; /* Center the menu items horizontally */
     width: 100%;
     font-family: 'Roboto Mono', monospace; /* Updated font */
@@ -40,7 +44,7 @@ a {
 
 /* Hover effect for menu items */
 .nav-item:hover {
-    background-color: #90664b;
+    background-color: #4da6ff;
 }
 
 /* Container styling */
@@ -56,7 +60,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Align items to the left */
-    background-color: #90664b; /* Background color for the sidebar */
+    background-color: #4da6ff; /* Background color for the sidebar */
     margin-top: 2cm; /* Add margin from the top */
 }
 
