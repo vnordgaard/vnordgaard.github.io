@@ -15,7 +15,7 @@ body {
 
 /* Change color of hyperlinks */
 a {
-    color: #90664b;
+    color: #4da6ff;
 }
 
 .sidebar {
@@ -73,7 +73,7 @@ a {
 .left-section {
     flex: 1; /* Take up remaining space */
     display: flex;
-    border-right: 2px solid #90664b; /* Change border color to match sidebar background */
+    border-right: 2px solid #4da6ff; /* Change border color to match sidebar background */
     padding-right: 20px; /* Add some space */
     margin-top: 20px; /* Add margin from the top */
     flex-direction: column;
