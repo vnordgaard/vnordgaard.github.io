@@ -23,7 +23,7 @@ a {
     flex-direction: column;
     align-items: flex-start; /* Align items to the left */
     background-color: white; /* Change background color */
-    margin-top: 2cm; /* Add margin from the top */
+    margin-top: 0.5cm; /* Add margin from the top */
     margin-left: 0.5cm;
     margin-right: 1cm;
 }
@@ -46,7 +46,7 @@ a {
     display: flex;
     top: 0;
     z-index: 1000;
-    position: sticky
+    position: sticky;
     justify-content: center; /* Center the menu items horizontally */
     width: 100%;
     font-family: 'Roboto Mono', monospace; /* Updated font */
@@ -59,6 +59,7 @@ a {
     padding: 10px 15px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    white-space: nowrap;
 }
 
 /* Hover effect for menu items */
@@ -75,18 +76,40 @@ a {
 }
 
 .left-section {
-    flex: 1; /* Take up remaining space */
-    display: flex;
-    border-right: 2px solid #4da6ff; /* Change border color to match sidebar background */
-    padding-right: 20px; /* Add some space */
-    margin-top: 20px; /* Add margin from the top */
-    flex-direction: column;
+    flex: 1;
+    max-width: 300px;
+    border-right: 2px solid black; /* Desktop vertical line */
+    padding-right: 20px;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;   /* smaller base font size */
+        line-height: 1.4; 
+    }
+
+    h1 { font-size: 20px; }
+    h2 { font-size: 18px; }
+    h3 { font-size: 16px; }
+
+    .left-section {
+        flex: 0 0 220px; /* narrower left panel */
+        max-width: 220px;
+        padding: 5px;   /* reduce padding */
+        margin: 0;      /* flush left */
+        border-right: 2px solid black;
+    }
+
+    .right-section {
+        flex: 1;        /* take remaining space */
+        padding: 10px;
+    }
 }
 
 .profile-section-row {
     display: flex;
-    flex-direction: right;
-    justify-content: flex-end;
+    justify-content: center; /* center instead of pushing right */
+    align-items: center;
 }
 
 .profile-picture {
@@ -95,15 +118,10 @@ a {
 }
 
 .profile-picture img {
-    width: 100px; /* Adjust image size */
-    height: 100px; /* Maintain aspect ratio */
+    width: 75px; /* Adjust image size */
+    height: 75px; /* Maintain aspect ratio */
     display: block; /* Prevent inline gap */
     margin: 0 auto 10px; /* Center image and add bottom margin */
-}
-
-.sidebar {
-    text-align: right;
-    margin: 0 0.5cm 0 0;
 }
 
 .right-section {
