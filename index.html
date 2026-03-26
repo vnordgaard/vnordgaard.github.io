@@ -1,58 +1,215 @@
-<DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Victor Nordgaard</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <nav class="site-nav">
+        <a class="brand" href="#top">Victor Nordgaard</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#research">Research</a>
+          <a href="#cv">CV</a>
+        </div>
+      </nav>
 
-<nav class="navbar">
-    <div class="container">
-        <a href="index.html" class="nav-item">V Nordgaard</a>
-        <a href="publications.html" class="nav-item">Research</a>
-    </div>
-</nav>
+      <main id="top" class="academic-layout">
+        <aside class="profile-panel">
+          <img
+            class="profile-image"
+            src="https://vnordgaard.github.io/images/pure.jpg"
+            alt="Victor Nordgaard"
+          />
+          <div class="profile-meta">
+            <h1>Victor Nordgaard</h1>
+            <p class="profile-role">Ph.D student, Aarhus University</p>
+          </div>
 
-<div class="container">
-    <div class="left-section">
-        <div class="profile-section-row">
+          <div class="icon-links" aria-label="External links">
+            <a href="mailto:vno@ps.au.dk" aria-label="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Zm0 2 8 5 8-5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://github.com/vnordgaard"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 2C6.48 2 2 6.58 2 12.24c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.88-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.56 2.35 1.11 2.92.85.09-.67.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.1 0-1.13.39-2.06 1.03-2.79-.1-.26-.45-1.31.1-2.74 0 0 .84-.27 2.75 1.07A9.35 9.35 0 0 1 12 6.95c.85 0 1.7.12 2.5.36 1.9-1.34 2.74-1.07 2.74-1.07.55 1.43.2 2.48.1 2.74.64.73 1.03 1.66 1.03 2.79 0 3.97-2.35 4.84-4.59 5.09.36.32.68.95.68 1.92 0 1.39-.01 2.51-.01 2.85 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/victor-nordgaard-866274232/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.55c0-1.02-.77-1.85-1.91-1.85-1.13 0-1.9.83-1.9 1.85s.75 1.85 1.86 1.85h.02c1.16 0 1.93-.83 1.93-1.85ZM20 13.02c0-3.47-1.85-5.08-4.32-5.08-1.99 0-2.89 1.1-3.39 1.87V8.5H8.9c.04.86 0 11.5 0 11.5h3.39v-6.42c0-.34.02-.68.12-.92.27-.68.9-1.38 1.95-1.38 1.38 0 1.93 1.04 1.93 2.56V20H20v-6.98Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+          </div>
+        </aside>
 
-            <div class="sidebar">
-                <a href="https://www.linkedin.com/in/victor-nordgaard-866274232/" target="_blank">
-                    <img src="images/in.jpg" alt="LinkedIn">
-                    <span class="dot"></span>
-                </a>
-                <a href="https://github.com/vnordgaard" target="_blank">
-                    <img src="images/github.png" alt="GitHub">
-                    <span class="dot"></span>
-                </a>
+        <div class="content-column">
+          <section class="content-section" id="about">
+            <p class="section-kicker">About</p>
+            <p>
+              I am currently doing my Ph.D. in Political Science at Aarhus
+              University. My project focuses on how studying the perceptions of
+              legislators can advance the study of unequal representation.
+            </p>
+          </section>
+
+          <section class="content-section" id="research">
+            <p class="section-kicker">Research</p>
+
+            <div class="entry">
+              <p class="entry-title">Publications</p>
+              <p class="entry-headline">
+                <a
+                  href="https://tidsskrift.dk/politica/article/view/143236"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Differential treatment close to the election?</a
+                >
+              </p>
+              <p class="entry-meta">
+                Victor <strong>Nordgaard</strong> (published as Hejstvig-Larsen) &amp; Ebbe Kristiansen, 2024, <em>politica</em>
+              </p>
+              <div class="abstract-body collapsed">
+                <p>
+                  This article investigates whether the electoral cycle – the phenomenon where
+                  politicians formulate more generous policy close to elections – is moderated by
+                  the deservingness status of the recipient of said generous policy. We argue that
+                  strategic politicians will design generous policy only for deserving recipients
+                  whose welfare needs are perceived as self-inflicted. To test this, we coded all
+                  adopted acts and parliamentary resolutions in the Danish parliament from 1975–2019
+                  that target five societal groups. With linear probability models, we find that
+                  politicians do in fact introduce more generous policies for deserving groups close
+                  to elections, while the effect of the electoral cycle is non-existent for
+                  undeserving groups. Our findings point towards a more disaggregated approach in
+                  the study of the electoral cycle.
+                </p>
+              </div>
+              <button class="toggle-abstract" aria-expanded="false">Abstract <span class="toggle-icon">↓</span></button>
             </div>
-            <div class="profile-picture">
-                <img src="images/pure.jpg" alt="Profile Picture">
-                Victor Nordgaard <br />
-                <span style="font-size: 14px;">Ph.D student</span>
-                        </div>
+
+            <p class="entry-title">Work in progress</p>
+
+            <div class="entry">
+              <p class="entry-headline">Reclaiming the City: How Citizens Mobilize When Their Preferences Are Visibly Discounted</p>
+              <p class="entry-meta">Victor <strong>Nordgaard</strong></p>
+              <div class="abstract-body collapsed">
+                <p>
+                  How do citizens respond when politicians openly privilege an economic elite? Research on
+                  unequal representation shows a policy bias toward affluent preferences, yet the issues studied
+                  typically exhibit striking preference similarity across income groups. A complementary
+                  literature explains this low conflict as strategic: elites anticipate backlash and channel
+                  inequality into technical, low-salience domains to keep the public disengaged. This paper
+                  examines what happens when these strategies fail — when elites grant visible concessions that
+                  contradict majority preferences. Using surveys of citizens and businesses (n&nbsp;≈&nbsp;5,500),
+                  behavioral data (inquiries and petitions), and elite interviews, the study analyzes a case in a
+                  Danish municipality where institutional arrangements enabled such an open concession. Findings
+                  show that visible privilege triggered conflict expansion: disengaged citizens mobilized,
+                  opinions crystallized, and issue salience spiked. The implication is that citizens — even when
+                  initially politically disengaged — can rise to hold decision-makers who openly favor the
+                  affluent accountable.
+                </p>
+              </div>
+              <button class="toggle-abstract" aria-expanded="false">Abstract <span class="toggle-icon">↓</span></button>
+            </div>
+
+            <div class="entry">
+              <p class="entry-headline">Does Affluence Shape Local Representation? The Relationship between Income and the Distribution of NIMBY goods</p>
+              <p class="entry-meta">Paula Natalie Bings &amp; Victor <strong>Nordgaard</strong></p>
+              <div class="abstract-body collapsed">
+                <p>
+                  Whether policymakers are equally responsive to all citizens is a principal question in
+                  democratic representation. While a sizable body of literature points to an affluent bias in
+                  policy representation, the evidence remains contested: income groups rarely diverge in stated
+                  preferences, estimates are sensitive to model specifications, and recent work finds no evidence
+                  of bias in government transfer allocations. A core difficulty is that existing studies infer
+                  representation from the correspondence between preferences and outcomes, which is complicated
+                  by the fact that preferences are highly correlated across income groups, differ in how informed
+                  they are, and observed outcomes fail to capture non-decisions.
+                </p>
+                <p>
+                  We argue that the geographic placement of facilities and constructions that are collectively
+                  beneficial but locally undesirable (NIMBY-goods) offers a uniquely clean test of
+                  representation. Because no community wants such facilities nearby, their placement necessarily
+                  imposes costs on someone. Where those costs fall reveals whose interests policymakers
+                  prioritize. This sidesteps the problems with preference-based analysis and speaks directly to
+                  an unresolved question with fresh evidence.
+                </p>
+                <p>
+                  We test this argument using facility placement across Danish municipalities in three steps.
+                  The first analysis asks the basic question: are locally undesirable facilities systematically
+                  more likely to be placed near lower-income areas? If so, that is a substantive finding in its
+                  own right: these neighborhoods absorb the burdens of collective provision. We then employ two
+                  designs targeting selection bias: a border-discontinuity approach comparing neighboring
+                  districts across municipal boundaries, and an exploitation of the 2007 municipal reform, which
+                  mechanically shifted districts' relative income ranks within newly merged jurisdictions. The
+                  results advance our understanding of income, public service delivery, and democratic
+                  representation.
+                </p>
+              </div>
+              <button class="toggle-abstract" aria-expanded="false">Abstract <span class="toggle-icon">↓</span></button>
+            </div>
+          </section>
+
+          <section class="content-section" id="cv">
+            <p class="section-kicker">CV</p>
+          </section>
         </div>
+      </main>
     </div>
 
-    <div class="right-section">
-        <div class="research-section">
-            <p>
-                I am currently doing my Ph.D. in Political Science at Aarhus University.
-                My work focuses on how studying the perceptions of legislators can advance the study of unequal representation.
-                To get in touch, you can 
-                contact me at <a href="mailto:vno@ps.au.dk">vno@ps.au.dk</a>
-            </p>
-            <p>
-            </p>
-        </div>
-    </div>
-</div>
-
-</body>
+    <script>
+      document.querySelectorAll('.toggle-abstract').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var body = btn.previousElementSibling;
+          var icon = btn.querySelector('.toggle-icon');
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          if (expanded) {
+            body.classList.add('collapsed');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.firstChild.textContent = 'Abstract ';
+            icon.textContent = '\u2193';
+          } else {
+            body.classList.remove('collapsed');
+            btn.setAttribute('aria-expanded', 'true');
+            btn.firstChild.textContent = 'Abstract ';
+            icon.textContent = '\u2191';
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
-
-
