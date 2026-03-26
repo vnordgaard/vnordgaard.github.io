@@ -278,3 +278,15 @@ a:hover { text-decoration: underline; }
   font-style: normal;
   line-height: 1;
 }
+
+/* ── Research sub-section groups ── */
+.research-group {
+  display: grid;
+  gap: 0;
+}
+
+.wip-group {
+  margin-top: 1.6rem;
+  padding-top: 1.4rem;
+  border-top: 1.5px solid var(--line-strong);
+}
