@@ -4,16 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Victor Nordgaard</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Manrope:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="page-shell">
+    <div class="page">
       <nav class="site-nav">
         <a class="brand" href="#top">Victor Nordgaard</a>
         <div class="nav-links">
@@ -23,196 +17,105 @@
         </div>
       </nav>
 
-      <main id="top" class="academic-layout">
-        <aside class="profile-panel">
+      <main id="top">
+        <header class="profile">
           <img
             class="profile-image"
-            src="https://vnordgaard.github.io/images/pure.png"
+            src="profile.jpg"
             alt="Victor Nordgaard"
           />
-          <div class="profile-meta">
+          <div>
             <h1>Victor Nordgaard</h1>
-            <p class="profile-role">Ph.D student, Aarhus University</p>
+            <p class="profile-role">Ph.D. fellow, Department of Political Science, Aarhus University</p>
+            <p class="profile-links">
+              <a href="mailto:vno@ps.au.dk">Email</a>
+              <a href="https://github.com/vnordgaard" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="https://www.linkedin.com/in/victor-nordgaard-866274232/" target="_blank" rel="noreferrer">LinkedIn</a>
+            </p>
+          </div>
+        </header>
+
+        <section id="about">
+          <h2>About</h2>
+          <p>
+            Ph.D. fellow at the Department of Political Science at Aarhus University.
+            My research interests span representation, inequality, local politics and
+            political behavior. My dissertation examines unequal political representation
+            with a focus on theorizing through politicians' anticipations why conflicts
+            between different socioeconomic groups rarely play out in democratic politics.
+          </p>
+          <p>I hold a BA and an MA in Political Science from Aarhus University.</p>
+        </section>
+
+        <section id="research">
+          <h2>Research</h2>
+
+          <h3>Publications</h3>
+
+          <div class="entry">
+            <p class="entry-title">
+              <a href="https://tidsskrift.dk/politica/article/view/143236" target="_blank" rel="noreferrer">Differential treatment close to the election?</a>
+            </p>
+            <p class="entry-meta">Victor Nordgaard (published as Hejstvig-Larsen) &amp; Ebbe Kristiansen, 2024, <em>Politica</em></p>
+            <button class="toggle-abstract" aria-expanded="false">Abstract</button>
+            <div class="abstract" hidden>
+              <p>This article investigates whether the electoral cycle – the phenomenon where politicians formulate more generous policy close to elections – is moderated by the deservingness status of the recipient of said generous policy. We argue that strategic politicians will design generous policy only for deserving recipients whose welfare needs are perceived as self-inflicted. To test this, we coded all adopted acts and parliamentary resolutions in the Danish parliament from 1975–2019 that target five societal groups. With linear probability models, we find that politicians do in fact introduce more generous policies for deserving groups close to elections, while the effect of the electoral cycle is non-existent for undeserving groups. Our findings point towards a more disaggregated approach in the study of the electoral cycle.</p>
+            </div>
           </div>
 
-          <div class="icon-links" aria-label="External links">
-            <a href="mailto:vno@ps.au.dk" aria-label="Email">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Zm0 2 8 5 8-5"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.7"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-            <a
-              href="https://github.com/vnordgaard"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M12 2C6.48 2 2 6.58 2 12.24c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.88-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.56 2.35 1.11 2.92.85.09-.67.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.1 0-1.13.39-2.06 1.03-2.79-.1-.26-.45-1.31.1-2.74 0 0 .84-.27 2.75 1.07A9.35 9.35 0 0 1 12 6.95c.85 0 1.7.12 2.5.36 1.9-1.34 2.74-1.07 2.74-1.07.55 1.43.2 2.48.1 2.74.64.73 1.03 1.66 1.03 2.79 0 3.97-2.35 4.84-4.59 5.09.36.32.68.95.68 1.92 0 1.39-.01 2.51-.01 2.85 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/victor-nordgaard-866274232/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.55c0-1.02-.77-1.85-1.91-1.85-1.13 0-1.9.83-1.9 1.85s.75 1.85 1.86 1.85h.02c1.16 0 1.93-.83 1.93-1.85ZM20 13.02c0-3.47-1.85-5.08-4.32-5.08-1.99 0-2.89 1.1-3.39 1.87V8.5H8.9c.04.86 0 11.5 0 11.5h3.39v-6.42c0-.34.02-.68.12-.92.27-.68.9-1.38 1.95-1.38 1.38 0 1.93 1.04 1.93 2.56V20H20v-6.98Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </a>
+          <h3>Work in progress</h3>
+
+          <div class="entry">
+            <p class="entry-title">The Anticipatory Filter and the Absence of Redistributive Conflict in Studies of Unequal Responsiveness</p>
+            <p class="entry-meta">Victor Nordgaard</p>
+            <button class="toggle-abstract" aria-expanded="false">Abstract</button>
+            <div class="abstract" hidden>
+              <p>A large literature investigates whether representation has an affluent bias by correlating preferences on a range of policy questions asked by pollsters with public policy. I argue that much representation on redistributive issues takes place before these policy questions become salient, and propose the concept of an anticipatory filter of redistributive politics; decision-makers preemptively avoid policy options likely to generate class conflict. As a result, policy options that would impose substantial and visible costs on socioeconomic groups are strategically kept off the political agenda, leaving a low-conflict issue space left for studying observed unequal representation. The analysis first examines the redistributive content of the issues used in existing studies with an alternative synthetically generated issue space, carefully constructed to mirror the observed issues. Then, using an original survey of politicians choosing among electorally viable policy agendas, I document how this filter operates. Finally, the paper traces the mechanism of anticipation and filtering through archival records of the Thatcher government, in which radical proposals were generated and dismissed.</p>
+            </div>
           </div>
-        </aside>
 
-        <div class="content-column">
-          <section class="content-section" id="about">
-            <p class="section-kicker">About</p>
-            <p>
-              I am a Ph.D. student at the Department of Political Science at Aarhus
-              University. My research interests include representation, political
-              behavior, and inequality. The focus of my dissertation is unequal
-              representation, and it combines research on public opinion, elite
-              perceptions, and political economy.
-              
-Ph.D. fellow at the Department of Political Science at Aarhus University. My research interests span representation, inequality, local politics and political behavior. 
-My dissertation examines unequal political representation with a focus on theorizing through politicians' anticipations why conflicts between different socioeconomic groups rarely play out in democratic politics.
-
-        
-            </p>
-            <p>
-              I hold a BA and an MA in Political Science from Aarhus University.
-            </p>
-          </section>
-
-          <section class="content-section" id="research">
-            <p class="section-kicker">Research</p>
-
-            <div class="research-group">
-              <p class="entry-title">Publications</p>
-              <div class="entry">
-                <p class="entry-headline">
-                  <a href="https://tidsskrift.dk/politica/article/view/143236" target="_blank" rel="noreferrer">Differential treatment close to the election?</a>
-                </p>
-                <p class="entry-meta"><strong>Victor Nordgaard</strong> (published as Hejstvig-Larsen) &amp; Ebbe Kristiansen, 2024, <em>politica</em></p>
-                <div class="abstract-body collapsed">
-                  <p>This article investigates whether the electoral cycle – the phenomenon where politicians formulate more generous policy close to elections – is moderated by the deservingness status of the recipient of said generous policy. We argue that strategic politicians will design generous policy only for deserving recipients whose welfare needs are perceived as self-inflicted. To test this, we coded all adopted acts and parliamentary resolutions in the Danish parliament from 1975–2019 that target five societal groups. With linear probability models, we find that politicians do in fact introduce more generous policies for deserving groups close to elections, while the effect of the electoral cycle is non-existent for undeserving groups. Our findings point towards a more disaggregated approach in the study of the electoral cycle.</p>
-                </div>
-                <button class="toggle-abstract" aria-expanded="false">Abstract <span class="toggle-icon">↓</span></button>
-              </div>
+          <div class="entry">
+            <p class="entry-title">Policy Exposure and Political Representation</p>
+            <p class="entry-meta">Victor Nordgaard</p>
+            <button class="toggle-abstract" aria-expanded="false">Abstract</button>
+            <div class="abstract" hidden>
+              <p>How should politicians interpret public silence when citizens have not yet experienced the consequences of a policy? I argue that weak public signals may reflect not the absence of preferences, but the difficulty of forming and expressing them before exposure. Drawing on policy feedback and theories of latent preferences, I examine whether exposure to a policy strengthens the signal citizens send to politicians. I study a major transformation of a traffic junction into a green urban space. During planning, citizens had few opportunities to express strong views, despite extensive consultation. Once the policy was implemented, however, affected commuters quickly mobilized against the changes, prompting a partial reversal. The reversal subsequently mobilized residents, cyclists, and pedestrians who benefited from the transformation. I combine an original survey of more than 5,000 residents with an earlier municipal survey, the complete record of citizen emails to the city, and interviews with politicians and civil servants. I find that exposure strengthens both the attitudinal and behavioral signals citizens send: exposed citizens hold more polarized views, are less likely to express uncertainty, and are more likely to contact political decision-makers. These findings suggest that the signal available before implementation may be a poor benchmark for evaluating representation when citizens have yet to experience a policy's consequences.</p>
             </div>
+          </div>
 
-            <div class="research-group wip-group">
-              <p class="entry-title">Work in progress</p>
-
-              <div class="entry">
-                <p class="entry-headline">The Anticipatory Filter and the Absence of Redistributive Conflict in Studies of Unequal Responsiveness</p>
-                <p class="entry-meta">Victor <strong>Nordgaard</strong></p>
-                <div class="abstract-body collapsed">
-                  <p> A large literature investigates whether representation has an affluent bias by correlating
-preferences on a range of policy questions asked by pollsters with public
-policy. I argue that much representation on redistributive issues takes place before
-these policy questions become salient, and propose the concept of an anticipatory
-filter of redistributive politics; decision-makers preemptively avoid policy options
-likely to generate class conflict. As a result, policy options that would impose substantial
-and visible costs on socioeconomic groups are strategically kept off the political
-agenda, leaving a low-conflict issue space left for studying observed unequal
-representation. The analysis first examines the redistributive
-content of the issues used in existing studies with an alternative synthetically
-generated issue space, carefully constructed to mirror the observed issues. 
-Then, using an original survey of politicians choosing among electorally viable policy agendas, I document how this filter operates.
-            Finally, the paper traces the mechanism of anticipation and filtering through archival records of the Thatcher
-government, in which radical proposals were generated and dismissed.</p>
-                </div>
-                <button class="toggle-abstract" aria-expanded="false">Abstract <span class="toggle-icon">↓</span></button>
-              </div>
-
-              <div class="entry">
-                <p class="entry-headline">Policy Exposure and Political Representation</p>
-                <p class="entry-meta">Victor <strong>Nordgaard</strong></p>
-                <div class="abstract-body collapsed">
-                  How should politicians interpret public silence when citizens have not yet experienced the consequences of a policy? I argue that weak public signals may reflect not the absence of preferences, but the difficulty of forming and expressing them before exposure. Drawing on policy feedback and theories of latent preferences, I examine whether exposure to a policy strengthens the signal citizens send to politicians. I study a major transformation of a traffic junction into a green urban space. During planning, citizens had few opportunities to express strong views, despite extensive consultation. Once the policy was implemented, however, affected commuters quickly mobilized against the changes, prompting a partial reversal. The reversal subsequently mobilized residents, cyclists, and pedestrians who benefited from the transformation. I combine an original survey of more than 5,000 residents with an earlier municipal survey, the complete record of citizen emails to the city, and interviews with politicians and civil servants. I find that exposure strengthens both the attitudinal and behavioral signals citizens send: exposed citizens hold more polarized views, are less likely to express uncertainty, and are more likely to contact political decision-makers. These findings suggest that the signal available before implementation may be a poor benchmark for evaluating representation when citizens have yet to experience a policy's consequences.
-                </div>
-                <button class="toggle-abstract" aria-expanded="false">Abstract <span class="toggle-icon">↓</span></button>
-              </div>
-
-              <div class="entry">
-                <p class="entry-headline">Shouldering the burden: How income shapes land use decisions</p>
-                <p class="entry-meta">Paula Natalie Bings &amp; Victor <strong>Nordgaard</strong></p>
-                <div class="abstract-body collapsed">
-Local land use decisions often provoke vocal opposition from nearby residents.
-Yet because development provides a collective good, governments cannot simply
-avoid it, leaving them with a representational choice over which neighborhoods
-bear the costs. We argue that because affluent citizens possess greater political
-leverage, developments should be placed farther from affluent and closer to lowerincome
-neighborhoods. Using Danish registry data on all housing developments
-between 1996 and 2019, we show that new multifamily housing are systematically
-placed closer to less affluent neighborhoods. Matched comparisons and a geographic
-discontinuity design show that political prioritization and not residential
-sorting better explain this pattern. Finally, leveraging a 2007 municipal merge, we
-find that neighborhoods that became relatively more affluent within their municipality
-did not subsequently experience less development, suggesting that politicians
-respond to absolute rather than relative political resources.                </div>
-                <button class="toggle-abstract" aria-expanded="false">Abstract <span class="toggle-icon">↓</span></button>
-              </div>
+          <div class="entry">
+            <p class="entry-title">Shouldering the burden: How income shapes land use decisions</p>
+            <p class="entry-meta">Paula Natalie Bings &amp; Victor Nordgaard</p>
+            <button class="toggle-abstract" aria-expanded="false">Abstract</button>
+            <div class="abstract" hidden>
+              <p>Local land use decisions often provoke vocal opposition from nearby residents. Yet because development provides a collective good, governments cannot simply avoid it, leaving them with a representational choice over which neighborhoods bear the costs. We argue that because affluent citizens possess greater political leverage, developments should be placed farther from affluent and closer to lower-income neighborhoods. Using Danish registry data on all housing developments between 1996 and 2019, we show that new multifamily housing are systematically placed closer to less affluent neighborhoods. Matched comparisons and a geographic discontinuity design show that political prioritization and not residential sorting better explain this pattern. Finally, leveraging a 2007 municipal merge, we find that neighborhoods that became relatively more affluent within their municipality did not subsequently experience less development, suggesting that politicians respond to absolute rather than relative political resources.</p>
             </div>
+          </div>
 
-              <div class="entry">
-                <p class="entry-headline">The (Perceived) Electoral Cost of Redistribution</p>
-                <p class="entry-meta">Victor <strong>Nordgaard</strong></p>
-                <div class="abstract-body collapsed">
-                Do politicians fear the electoral consequences of redistribution? 
-                  Existing theories offer competing expectations. 
-                  Theories of elite influence suggest that politicians should be particularly cautious about progressive redistribution, which imposes costs on affluent voters,
-                  while majoritarian accounts suggest greater caution toward regressive redistribution, which imposes costs on larger groups of less affluent voters.
-                  I argue that both forms of redistribution can generate electoral risks: policies that make some voters worse off may activate them politically, regardless of the direction of redistribution.
-                  I test this argument with a survey of Danish local politicians in which they evaluate two numerically identical property-value-based tax reforms: 
-                  one progressive and one regressive. Politicians assess how each reform would affect citizens economically, how those citizens would respond politically, 
-                  and the electoral consequences for the politicians proposing the policy. This design allows me to compare politicians’ anticipated electoral risks from redistribution
-                  in opposite directions while holding the size of the fiscal change constant.
-              </div>
-                <button class="toggle-abstract" aria-expanded="false">Abstract <span class="toggle-icon">↓</span></button>
-              </div>
+          <div class="entry">
+            <p class="entry-title">The (Perceived) Electoral Cost of Redistribution</p>
+            <p class="entry-meta">Victor Nordgaard</p>
+            <button class="toggle-abstract" aria-expanded="false">Abstract</button>
+            <div class="abstract" hidden>
+              <p>Do politicians fear the electoral consequences of redistribution? Existing theories offer competing expectations. Theories of elite influence suggest that politicians should be particularly cautious about progressive redistribution, which imposes costs on affluent voters, while majoritarian accounts suggest greater caution toward regressive redistribution, which imposes costs on larger groups of less affluent voters. I argue that both forms of redistribution can generate electoral risks: policies that make some voters worse off may activate them politically, regardless of the direction of redistribution. I test this argument with a survey of Danish local politicians in which they evaluate two numerically identical property-value-based tax reforms: one progressive and one regressive. Politicians assess how each reform would affect citizens economically, how those citizens would respond politically, and the electoral consequences for the politicians proposing the policy. This design allows me to compare politicians’ anticipated electoral risks from redistribution in opposite directions while holding the size of the fiscal change constant.</p>
             </div>
+          </div>
+        </section>
 
-          </section>
-
-          <section class="content-section" id="cv">
-            <p class="section-kicker">CV</p>
-          </section>
-        </div>
+        <section id="cv">
+          <h2>CV</h2>
+          <p><a class="download" href="cv.pdf" download="Victor_Nordgaard_CV.pdf">DOWNLOAD</a></p>
+        </section>
       </main>
     </div>
 
     <script>
-      document.querySelectorAll('.toggle-abstract').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var body = btn.previousElementSibling;
-          var icon = btn.querySelector('.toggle-icon');
-          var expanded = btn.getAttribute('aria-expanded') === 'true';
-          if (expanded) {
-            body.classList.add('collapsed');
-            btn.setAttribute('aria-expanded', 'false');
-            btn.firstChild.textContent = 'Abstract ';
-            icon.textContent = '\u2193';
-          } else {
-            body.classList.remove('collapsed');
-            btn.setAttribute('aria-expanded', 'true');
-            btn.firstChild.textContent = 'Abstract ';
-            icon.textContent = '\u2191';
-          }
+      document.querySelectorAll('.toggle-abstract').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var body = btn.nextElementSibling;
+          var open = btn.getAttribute('aria-expanded') === 'true';
+          body.hidden = open;
+          btn.setAttribute('aria-expanded', String(!open));
         });
       });
     </script>
