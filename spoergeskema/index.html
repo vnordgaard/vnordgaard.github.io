@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Spørgeskema</title>
+<style>
+  :root { --fg:#111; --muted:#777; --line:#ddd; --bg:#fff; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; background:var(--bg); color:var(--fg); }
+  body { font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  #bar { position:fixed; top:0; left:0; height:2px; background:var(--fg); width:0; transition:width .3s; }
+  main { max-width:640px; margin:0 auto; padding:56px 20px 80px; }
+  h1 { font-size:22px; font-weight:600; margin:0 0 20px; }
+  h2 { font-size:18px; font-weight:600; margin:32px 0 10px; }
+  p { margin:0 0 14px; }
+  .muted { color:var(--muted); font-size:15px; }
+  .q { margin:32px 0 0; }
+  .q > .label { font-weight:600; margin-bottom:10px; }
+  .stmt { margin:0 0 12px; }
+  hr { border:0; border-top:1px solid var(--line); margin:32px 0; }
+  img { display:block; max-width:100%; height:auto; margin:20px auto; }
+  /* svarmuligheder */
+  .opts { display:flex; flex-direction:column; gap:8px; }
+  .opt { display:flex; gap:12px; align-items:flex-start; padding:11px 14px; border:1px solid var(--line); cursor:pointer; user-select:none; }
+  .opt:hover { border-color:#999; }
+  .opt input { margin:4px 0 0; accent-color:var(--fg); flex:none; }
+  .opt.sel { border-color:var(--fg); }
+  .opt b { font-weight:600; }
+  /* knapper */
+  .nav { margin-top:40px; display:flex; align-items:center; gap:16px; }
+  button { font:inherit; font-size:16px; background:var(--fg); color:#fff; border:1px solid var(--fg); padding:9px 26px; cursor:pointer; }
+  button:disabled { background:#fff; color:#aaa; border-color:#ccc; cursor:default; }
+  .hint { color:#b00; font-size:14px; }
+  /* skala */
+  .slider { margin:18px 0 0; }
+  .slider input[type=range] { width:100%; margin:0; accent-color:var(--fg); }
+  .slider input.untouched::-webkit-slider-thumb { opacity:0; }
+  .slider input.untouched::-moz-range-thumb { opacity:0; }
+  .ticks { display:flex; justify-content:space-between; font-size:14px; color:var(--muted); margin-top:4px; }
+  .val { margin-top:8px; font-size:15px; }
+  textarea { width:100%; min-height:130px; font:inherit; font-size:16px; padding:10px; border:1px solid var(--line); resize:vertical; }
+  textarea:focus { outline:none; border-color:var(--fg); }
+  .pair-count { color:var(--muted); font-size:14px; margin-bottom:8px; }
+  .fade { animation:fade .25s ease; }
+  @keyframes fade { from { opacity:0; } to { opacity:1; } }
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<main id="app"></main>
+
+<script>
+/* =====================================================================
+   INDSTILLINGER
+   ===================================================================== */
+var SHEET_URL = 'https://script.google.com/macros/s/AKfycbxMBXflf2DL9mpCxTH9ulfvwc3Mqwd3lWhJlVl7msfRxrubHbbxtXP-39VqgV-jt-n7/exec';
+var N_PAIRS = 5;            // antal par i item 1 (anticipatory filter)
+var CUT_LOW = 0.3;          // Lav:    win_share <  0,3
+var CUT_HIGH = 0.8;         // Mellem: 0,3 <= win_share < 0,8   Høj: >= 0,8
+
+/* =====================================================================
+   HJÆLPERE
+   ===================================================================== */
+function rnd() { return Math.random(); }
+function pick(arr) { return arr[Math.floor(rnd() * arr.length)]; }
+function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rnd() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+function el(tag, attrs, html) { var e = document.createElement(tag); if (attrs) for (var k in attrs) e.setAttribute(k, attrs[k]); if (html != null) e.innerHTML = html; return e; }
+function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+function catOf(ws) { return ws < CUT_LOW ? 'lav' : (ws < CUT_HIGH ? 'mellem' : 'hoej'); }
+function fmtPct(v) { return (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v) + ' %'; }
+function now() { return Date.now(); }
+
+var app = document.getElementById('app');
+var bar = document.getElementById('bar');
+
+/* =====================================================================
+   RESPONDENT OG RANDOMISERING
+   ===================================================================== */
+var params = new URLSearchParams(location.search);
+var R = {};   // alt der gemmes i "Besvarelser"
+R.resp_id = params.get('id') || ('r' + Math.random().toString(36).slice(2, 10));
+R.start_time = new Date().toISOString();
+R.user_agent = navigator.userAgent;
+R.filter_n_pairs = N_PAIRS;
+
+// Grundskyld: randomisering 1 (info), 2 (informationsbetingelse), 3 (rækkefølge)
+R.gs_info = rnd() < 0.5 ? 1 : 0;
+if (R.gs_info) {
+  var condA = rnd() < 0.5;
+  R.gs_info_cond = condA ? 'A_reg72_prog28' : 'B_reg28_prog72';
+  R.gs_reg_support = condA ? 72 : 28;
+  R.gs_prog_support = condA ? 28 : 72;
+} else {
+  R.gs_info_cond = 'none';
+  R.gs_reg_support = '';
+  R.gs_prog_support = '';
+}
+R.gs_order = rnd() < 0.5 ? 'reg_first' : 'prog_first';
+R.reg_position = R.gs_order === 'reg_first' ? 1 : 2;
+R.prog_position = R.gs_order === 'reg_first' ? 2 : 1;
+
+/* =====================================================================
+   DATA FRA "SAMPLE"
+   ===================================================================== */
+var POOL = null, dataError = null;
+function loadData() {
+  dataError = null;
+  return fetch(SHEET_URL, { method: 'GET' })
+    .then(function (r) { return r.json(); })
+    .then(function (rows) {
+      var pool = { lav: [], mellem: [], hoej: [] };
+      rows.forEach(function (r) {
+        var ws = parseFloat(String(r.win_share).replace(',', '.'));
+        if (!r.policy_dk || isNaN(ws)) return;
+        pool[catOf(ws)].push({ uid: r.uid, ws: ws, text: r.policy_dk });
+      });
+      POOL = pool;
+    })
+    .catch(function (e) { dataError = e; });
+}
+var dataPromise = loadData();
+
+// Træk par: tilfældig par-type, ét forslag fra hver kategori, uden gentagelser, tilfældig A/B-rækkefølge
+var PAIR_TYPES = [['lav', 'mellem'], ['lav', 'hoej'], ['mellem', 'hoej']];
+var used = {};
+function drawPair() {
+  var options = PAIR_TYPES.filter(function (t) {
+    return POOL[t[0]].some(function (p) { return !used[p.uid]; }) && POOL[t[1]].some(function (p) { return !used[p.uid]; });
+  });
+  var type = pick(options.length ? options : PAIR_TYPES);
+  var p1 = pick(POOL[type[0]].filter(function (p) { return !used[p.uid]; }));
+  var p2 = pick(POOL[type[1]].filter(function (p) { return !used[p.uid]; }));
+  used[p1.uid] = used[p2.uid] = true;
+  var ab = shuffle([p1, p2]);
+  return { type: type.join('_'), A: ab[0], B: ab[1] };
+}
+
+/* =====================================================================
+   UI-KOMPONENTER
+   ===================================================================== */
+var LIKERT = ['Helt uenig', 'Delvist uenig', 'Hverken enig eller uenig', 'Delvist enig', 'Helt enig'];
+
+function radioGroup(name, labels, onChange) {
+  var wrap = el('div', { 'class': 'opts' });
+  labels.forEach(function (lab, i) {
+    var o = el('label', { 'class': 'opt' });
+    var inp = el('input', { type: 'radio', name: name, value: String(i + 1) });
+    o.appendChild(inp);
+    o.appendChild(el('span', null, lab));
+    inp.addEventListener('change', function () {
+      wrap.querySelectorAll('.opt').forEach(function (x) { x.classList.remove('sel'); });
+      o.classList.add('sel');
+      onChange(i + 1);
+    });
+    wrap.appendChild(o);
+  });
+  return wrap;
+}
+
+function navButton(label, onClick) {
+  var nav = el('div', { 'class': 'nav' });
+  var b = el('button', null, label || 'Videre');
+  var hint = el('span', { 'class': 'hint' });
+  b.addEventListener('click', function () { onClick(hint); });
+  nav.appendChild(b); nav.appendChild(hint);
+  return { nav: nav, button: b, hint: hint };
+}
+
+/* =====================================================================
+   SIDER
+   ===================================================================== */
+var pageStart = 0;
+function timed(id) { R['t_' + id] = Math.round((now() - pageStart) / 1000); }
+
+function pageIntro(next) {
+  app.appendChild(el('h1', null, 'Intro'));
+  var n = navButton('Start', function (hint) {
+    if (POOL) return next();
+    b.disabled = true; b.textContent = 'Indlæser…';
+    dataPromise.then(function () {
+      if (POOL) return next();
+      b.disabled = false; b.textContent = 'Prøv igen';
+      hint.textContent = 'Spørgeskemaet kunne ikke indlæses. Tjek din internetforbindelse.';
+      dataPromise = loadData();
+    });
+  });
+  var b = n.button;
+  app.appendChild(n.nav);
+}
+
+function pageBackground(next) {
+  app.appendChild(el('p', null, 'Hvor enig eller uenig er du i følgende udsagn?'));
+  app.appendChild(el('p', { 'class': 'stmt' }, '<b>”Høje indkomster burde beskattes højere, end de gør i dag.”</b>'));
+  var val = null;
+  app.appendChild(radioGroup('bg', LIKERT, function (v) { val = v; }));
+  app.appendChild(navButton('Videre', function (hint) {
+    if (!val) { hint.textContent = 'Vælg venligst et svar.'; return; }
+    R.bg_tax_high = val; timed('background'); next();
+  }).nav);
+}
+
+function pageFilter(next) {
+  var intro = el('div');
+  intro.innerHTML =
+    '<p>Forestil dig, at du er med til at rådgive dit partis nationale politiske program.</p>' +
+    '<p>Partiet mangler stadig politiske forslag til sit valgprogram.</p>' +
+    '<p>Du vil blive præsenteret for par af to forskellige forslag. Din opgave er at udvælge det forslag, som du mener vil skabe størst opbakning til partiet i befolkningen.</p>';
+  app.appendChild(intro);
+  var area = el('div');
+  app.appendChild(area);
+  var first = navButton('Videre', function () { first.nav.remove(); timed('filter_intro'); showPair(1); });
+  app.appendChild(first.nav);
+
+  function showPair(i) {
+    area.innerHTML = '';
+    var pair = drawPair();
+    var t0 = now();
+    var box = el('div', { 'class': 'fade' });
+    box.appendChild(el('hr'));
+    box.appendChild(el('div', { 'class': 'pair-count' }, 'Par ' + i + ' af ' + N_PAIRS));
+    box.appendChild(el('p', null, '<b>Hvilket forslag ville du tage med videre i arbejdet med partiets valgprogram?</b>'));
+    box.appendChild(el('p', { 'class': 'muted' }, 'Vælg én'));
+    var choice = null;
+    box.appendChild(radioGroup('pair' + i, [
+      '<b>Forslag A:</b> ' + esc(pair.A.text),
+      '<b>Forslag B:</b> ' + esc(pair.B.text)
+    ], function (v) { choice = v === 1 ? 'A' : 'B'; }));
+    box.appendChild(navButton('Videre', function (hint) {
+      if (!choice) { hint.textContent = 'Vælg venligst et forslag.'; return; }
+      var chosen = pair[choice], other = pair[choice === 'A' ? 'B' : 'A'];
+      var k = 'f' + i + '_';
+      R[k + 'pair_type'] = pair.type;
+      R[k + 'A_uid'] = pair.A.uid; R[k + 'A_ws'] = pair.A.ws; R[k + 'A_cat'] = catOf(pair.A.ws);
+      R[k + 'B_uid'] = pair.B.uid; R[k + 'B_ws'] = pair.B.ws; R[k + 'B_cat'] = catOf(pair.B.ws);
+      R[k + 'choice'] = choice;
+      R[k + 'chosen_uid'] = chosen.uid;
+      R[k + 'chosen_ws'] = chosen.ws;
+      R[k + 'chosen_higher'] = chosen.ws > other.ws ? 1 : (chosen.ws < other.ws ? 0 : '');
+      R[k + 'rt_ms'] = now() - t0;
+      if (i < N_PAIRS) { showPair(i + 1); window.scrollTo(0, 0); }
+      else { timed('filter'); next(); }
+    }).nav);
+    area.appendChild(box);
+  }
+}
+
+function pageGsIntro(next) {
+  app.innerHTML =
+    '<h1>Introduktion</h1>' +
+    '<p>I dag beregner man, hvor meget grundskyld en borger i kommunen skal betale, ud fra grundens værdi. Det betyder, at borgere, der ejer højt vurderede grunde, betaler mere end borgere, der ejer lavere vurderede grunde. Borgere, som ikke ejer en grund, betaler ikke grundskyld.</p>' +
+    '<p>Forestil dig, at regeringen har fremlagt et nyt lovforslag, som vil give kommunerne mere frihed over reguleringen af grundskylden.</p>' +
+    '<p>På den baggrund overvejer kommunalbestyrelser rundt omkring to forskellige modeller, der ændrer den nuværende opkrævning af kommunal grundskyld.</p>' +
+    '<p>I begge modeller afskaffes den nuværende grundskyld og erstattes af en ny grundskyld, hvor skatteprocenten afhænger af grundens værdi. I begge modeller vil de samlede skatteindtægter fra grundskylden svare til kommunens nuværende indtægter fra grundskylden.</p>' +
+    '<p>Du vil nu blive præsenteret for to forskellige modeller.</p>';
+  app.appendChild(navButton('Videre', function () { timed('gs_intro'); next(); }).nav);
+}
+
+var MODELS = {
+  reg: {
+    letter: null, name: 'regressiv', adj: 'regressive',
+    body: '<p>I denne model afskaffes den nuværende opkrævning af kommunal grundskyld for i stedet at indføre en regressiv grundskyld, hvor skatteprocenten afhænger af grundens værdi.</p>' +
+          '<p>Ejere af billigere grunde vil betale en større andel af grundens værdi i grundskyld end ejere af dyrere grunde. Jo højere grundens værdi er, desto lavere vil skatteprocenten være.</p>' +
+          '<p>De samlede skatteindtægter fra den nye grundskyld vil svare til kommunens nuværende indtægter fra grundskylden.</p>',
+    img: 'img/regressiv.png',
+    stmt: 'Det er en god idé at indføre en regressiv grundskyld, hvor ejere af billigere grunde betaler en større andel af grundens værdi i grundskyld end ejere af dyrere grunde.'
+  },
+  prog: {
+    letter: null, name: 'progressiv', adj: 'progressive',
+    body: '<p>I denne model afskaffes den nuværende opkrævning af kommunal grundskyld for i stedet at indføre en progressiv grundskyld, hvor skatteprocenten afhænger af grundens værdi.</p>' +
+          '<p>Ejere af dyrere grunde vil betale en større andel af grundens værdi i grundskyld end ejere af billigere grunde. Jo højere grundens værdi er, desto højere vil skatteprocenten være.</p>' +
+          '<p>De samlede skatteindtægter fra den nye grundskyld vil svare til kommunens nuværende indtægter fra grundskylden.</p>',
+    img: 'img/progressiv.png',
+    stmt: 'Det er en god idé at indføre en progressiv grundskyld, hvor ejere af dyrere grunde betaler en større andel af grundens værdi i grundskyld end ejere af billigere grunde.'
+  }
+};
+// Model A = den der vises først, Model B = den der vises som nummer to
+(R.gs_order === 'reg_first' ? ['reg', 'prog'] : ['prog', 'reg']).forEach(function (k, i) { MODELS[k].letter = i === 0 ? 'A' : 'B'; MODELS[k].pos = i + 1; });
+function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+function pageModel(key) {
+  return function (next) {
+    var m = MODELS[key];
+    app.appendChild(el('h1', null, 'Model ' + m.letter + ': ' + cap(m.name) + ' grundskyld'));
+    app.insertAdjacentHTML('beforeend', m.body);
+    app.appendChild(el('img', { src: m.img, alt: 'Illustration af ' + m.name + ' grundskyld' }));
+    app.appendChild(navButton('Videre', function () { timed(key + '_model'); next(); }).nav);
+  };
+}
+
+function pageInfo(key) {
+  return function (next) {
+    var m = MODELS[key];
+    var support = key === 'reg' ? R.gs_reg_support : R.gs_prog_support;
+    var lead = m.pos === 1
+      ? 'I forbindelse med kommunens overvejelser om en ny grundskyld er der blevet gennemført en spørgeskemaundersøgelse blandt et repræsentativt udsnit af borgerne i kommunen.'
+      : 'I forbindelse med kommunens overvejelser om den ny grundskyld er der blevet gennemført en spørgeskemaundersøgelse blandt et repræsentativt udsnit af borgerne i kommunen. I spørgeskemaundersøgelsen blev borgerne også spurgt om denne grundskyld.';
+    app.appendChild(el('p', null, lead));
+    app.appendChild(el('h2', null, 'Borgernes holdninger til Model ' + m.letter + ': ' + cap(m.name) + ' grundskyld'));
+    app.appendChild(el('p', null, 'Borgerne er blevet spurgt:'));
+    app.appendChild(el('p', null, '<b>”' + m.stmt + '”</b>'));
+    app.appendChild(el('img', { src: 'img/' + m.name + '_' + support + '.png', alt: support + ' % af borgerne svarede ja' }));
+    app.appendChild(navButton('Videre', function () { timed(key + '_info'); next(); }).nav);
+  };
+}
+
+function pageDV(key) {
+  return function (next) {
+    var m = MODELS[key];
+    var vote = null, evalv = null;
+
+    // Spørgsmål 1
+    var q1 = el('div', { 'class': 'q' });
+    q1.innerHTML =
+      '<p>Forestil dig, at kommunen, anført af borgmesterpartiet, stemmer den ' + m.adj + ' grundskyld igennem, og at reformen gennemføres.</p>' +
+      '<p><b>Hvordan tror du, at opbakningen til borgmesterpartiet vil ændre sig ved det næste kommunalvalg som følge af denne reform?</b></p>';
+    var sl = el('div', { 'class': 'slider' });
+    var range = el('input', { type: 'range', min: '-25', max: '25', step: '1', value: '0', 'class': 'untouched', 'aria-label': 'Ændring i opbakning' });
+    var ticks = el('div', { 'class': 'ticks' }, '<span>−25 %</span><span>0</span><span>+25 %</span>');
+    var valEl = el('div', { 'class': 'val muted' }, 'Klik eller træk på skalaen for at angive dit svar.');
+    sl.appendChild(range); sl.appendChild(ticks); sl.appendChild(valEl);
+    q1.appendChild(sl);
+    app.appendChild(q1);
+
+    // Spørgsmål 2
+    var q2 = el('div', { 'class': 'q' });
+    q2.appendChild(el('p', null, 'Hvor enig eller uenig er du i følgende udsagn?'));
+    q2.appendChild(el('p', { 'class': 'stmt' }, '<b>”Det er en god idé at indføre den ' + m.adj + ' grundskyld.”</b>'));
+    q2.appendChild(radioGroup(key + '_eval', LIKERT, function (v) { evalv = v; }));
+    app.appendChild(q2);
+
+    // Spørgsmål 3 (vises, når spørgsmål 1 er besvaret)
+    var q3 = el('div', { 'class': 'q' });
+    q3.style.display = 'none';
+    var q3text = el('p');
+    var q3ask = el('p');
+    var ta = el('textarea', { 'aria-label': 'Åbent svar' });
+    q3.appendChild(q3text); q3.appendChild(q3ask); q3.appendChild(ta);
+    app.appendChild(q3);
+
+    function updateQ3() {
+      if (vote === 0) {
+        q3text.innerHTML = 'Du har vurderet, at opbakningen til borgmesterpartiet ikke vil ændre sig ved næste kommunalvalg, hvis kommunen indfører den ' + m.adj + ' grundskyld.';
+        q3ask.innerHTML = 'Skriv venligst dine tanker og overvejelser om, hvorfor du ikke forventer en ændring i opbakningen til borgmesterpartiet.';
+      } else {
+        q3text.innerHTML = 'Du har vurderet, at opbakningen til borgmesterpartiet vil ændre sig med <b>' + fmtPct(vote) + '</b> ved næste kommunalvalg, hvis kommunen indfører den ' + m.adj + ' grundskyld.';
+        q3ask.innerHTML = 'Skriv venligst dine tanker og overvejelser om, hvorfor du forventer denne ændring i opbakningen til borgmesterpartiet.';
+      }
+    }
+    function onSlide() {
+      range.classList.remove('untouched');
+      vote = parseInt(range.value, 10);
+      valEl.textContent = 'Dit svar: ' + fmtPct(vote);
+      valEl.classList.remove('muted');
+      if (q3.style.display === 'none') { q3.style.display = ''; q3.classList.add('fade'); }
+      updateQ3();
+    }
+    range.addEventListener('input', onSlide);
+    range.addEventListener('change', onSlide);
+    range.addEventListener('pointerdown', function () { setTimeout(onSlide, 0); });
+
+    app.appendChild(navButton('Videre', function (hint) {
+      if (vote === null || !evalv) { hint.textContent = 'Besvar venligst spørgsmålene ovenfor.'; return; }
+      R[key + '_dv_vote'] = vote;
+      R[key + '_dv_eval'] = evalv;
+      R[key + '_dv_open'] = ta.value.trim();
+      timed(key + '_dv');
+      next();
+    }).nav);
+  };
+}
+
+function pageEnd() {
+  R.end_time = new Date().toISOString();
+  R.duration_sec = Math.round((Date.parse(R.end_time) - Date.parse(R.start_time)) / 1000);
+  app.innerHTML = '<p class="muted">Gemmer din besvarelse…</p>';
+  submit().then(function () {
+    app.innerHTML = '<h1>Tak for din besvarelse.</h1><p>Du kan nu lukke vinduet.</p>';
+  }).catch(function () {
+    app.innerHTML = '<p>Din besvarelse kunne ikke gemmes. Tjek din internetforbindelse.</p>';
+    app.appendChild(navButton('Prøv igen', function () { pageEnd(); }).nav);
+  });
+}
+
+function submit() {
+  // text/plain undgår CORS-preflight; Apps Script læser e.postData.contents
+  return fetch(SHEET_URL, {
+    method: 'POST', mode: 'no-cors', keepalive: true,
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(R)
+  });
+}
+
+/* =====================================================================
+   FLOW
+   ===================================================================== */
+var first = R.gs_order === 'reg_first' ? 'reg' : 'prog';
+var second = first === 'reg' ? 'prog' : 'reg';
+var FLOW = [pageIntro, pageBackground, pageFilter, pageGsIntro, pageModel(first)];
+if (R.gs_info) FLOW.push(pageInfo(first));
+FLOW.push(pageDV(first), pageModel(second));
+if (R.gs_info) FLOW.push(pageInfo(second));
+FLOW.push(pageDV(second));
+
+var cur = -1;
+function go() {
+  cur++;
+  bar.style.width = Math.round(100 * cur / FLOW.length) + '%';
+  app.innerHTML = '';
+  window.scrollTo(0, 0);
+  pageStart = now();
+  if (cur >= FLOW.length) return pageEnd();
+  FLOW[cur](go);
+}
+go();
+</script>
+</body>
+</html>
